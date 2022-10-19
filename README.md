@@ -1,7 +1,4 @@
 # Exploring COVID-19 Vaccine Effectiveness
-## README.md change
-hello world
-
 ## National View
 ![](img/animation.gif)
 
