@@ -7,6 +7,10 @@
 import imageio as iio
 import os
 
+#create an iterable list in correct date order. Uses the final character in year (-5 index) to sort. (eg. '11-30-2021.png'
+#is before '08-31-2022.png' because 1 is before 2)
+dates = sorted(os.listdir('img'), key=lambda date: date[-5])
+
 def create_gif(filename_save):
     """This function creates a gif animation from a folder of png images
     Parameters:
@@ -16,7 +20,7 @@ def create_gif(filename_save):
     images = list()
 
     #this part looks at the img directory and reads in all the files that end with .png (only going to bring in those)
-    for filename in sorted(os.listdir('img')):
+    for filename in dates:
         if filename[-4:] == '.png' and not filename == 'comparison.png':
             f = os.path.join('img',filename)
             im = iio.imread(f)
