@@ -1,5 +1,5 @@
 # Exploring COVID-19 Vaccine Effectiveness
-## National View
+## I made this change
 ![](img/animation.gif)
 
 ## County View
