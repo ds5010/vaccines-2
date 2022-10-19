@@ -6,6 +6,12 @@
 
 import imageio as iio
 import os
+from datetime import datetime
+
+#define a new funtion to transfer string date type into datetime type
+def sortdate(strdate):
+    strdate.sort(key=lambda date: datetime.strptime(date, "%m-%d-%Y.png"))
+    return strdate
 
 def create_gif(filename_save):
     """This function creates a gif animation from a folder of png images
@@ -16,9 +22,14 @@ def create_gif(filename_save):
     images = list()
 
     #this part looks at the img directory and reads in all the files that end with .png (only going to bring in those)
-    for filename in sorted(os.listdir('img')):
+    #read file names of all scatter images.
+    strdates=[]
+    for filename in os.listdir('img'):
         if filename[-4:] == '.png' and not filename == 'comparison.png':
-            f = os.path.join('img',filename)
+            strdates.append(filename)
+    #trasfer string type filenames to datetime type. sort files according to the date.
+    for strdate in sortdate(strdates):        
+            f = os.path.join('img',strdate)
             im = iio.imread(f)
             images.append(im)
 
