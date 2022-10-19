@@ -2,8 +2,7 @@
 ## National View
 ![](img/animation.gif)
 
-
-ADDING SOMETHING
+adding something
 
 ## County View
 ![](img/comparison.png)
