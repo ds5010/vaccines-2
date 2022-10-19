@@ -30,7 +30,7 @@ def create_gif(filename_save):
     for filename in list_of_files: #changes made by meghDev
         #sorted(os.listdir('img')):
         if filename[-4:] == '.png' and not filename == 'comparison.png':
-            f = os.path.join('img',filename)
+            f = os.path.join(filename)
             im = iio.imread(f)
             images.append(im)
 
