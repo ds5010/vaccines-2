@@ -1,3 +1,5 @@
+This is a change I am making to the readme file
+
 # Exploring COVID-19 Vaccine Effectiveness
 ## National View
 ![](img/animation.gif)
