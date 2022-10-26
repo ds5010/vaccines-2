@@ -67,7 +67,7 @@ def comparison(FIPS_1='44003', FIPS_2='01125'):
     width = 0.35
     ax1.set_xticks(x, labels)
     ax1.set_ylim(0, 100)
-    ax1.set_xlim(0,len(x)-1)
+    ax1.set_xlim(-1,len(x))
     
     ax1.set_title('18+ Vaccination Rates and Deaths in '+FIPS_1_name+" and "+FIPS_2_name, wrap=True)
     ax1.set_xlabel('Month 2021')
