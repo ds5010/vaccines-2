@@ -17,6 +17,8 @@ def scatter(month):
     y = df[ylabel]
     area = df['Census2019_18PlusPop'] / 1e6     #population in millions
 
+    
+
     fig, ax = plt.subplots()
     ax.set_xlabel("Percent of Population (+18) Considered Fully Vaccinated")
     ax.set_ylabel("Deaths per 100K")
@@ -53,7 +55,7 @@ def scatter(month):
     for area_scl in [0.5, 2, 4]:
         ax.scatter([], [], s = plot_scl*area_scl, c = "gray", alpha = 0.5, label = str(area_scl) + 'M')
     ax.legend(loc = (1.05, 0.3), title="Population (Millions)", labelspacing = 1.5, borderpad = 1)
-
+    plt.text(30, 200, month, fontsize = 30).set_alpha(.4)
     plt.tight_layout()    
     plt.savefig('img/'+month+'.png')
 
