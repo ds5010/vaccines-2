@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from collections import defaultdict
 import sys
+import datetime
 
 def fips_to_name(FIPS):
     map = defaultdict(lambda: FIPS)
@@ -47,8 +48,18 @@ def comparison(FIPS_1='44003', FIPS_2='01125'):
     FIPS_2_death = FIPS_2_death['Deaths_Per_1e5']
 
     fig,ax1 = plt.subplots() 
-    x = [0, 1, 2, 3, 4, 5, 6]
-    labels = ['May', 'June', 'July', 'August', 'September', 'October', 'November']
+    #x = [0, 1, 2, 3, 4, 5, 6]
+    #labels = ['May', 'June', 'July', 'August', 'September', 'October', 'November']
+    x = []
+    labels = []
+    i = 0
+    #To update x, y labels of county-view graph from dates in csv
+    for month in months:
+        datetime_object = datetime.datetime.strptime(month, "%m-%d-%Y")
+        month_year=datetime_object.strftime("%b")+"-"+datetime_object.strftime("%y")
+        labels.append(month_year)
+        x.append(i)
+        i= i+1
  
     plt.tick_params(axis='x', rotation=30 ,direction='out', length=len(x))
     plt.figure(figsize=(len(x), 100))
