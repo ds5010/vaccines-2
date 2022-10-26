@@ -54,6 +54,8 @@ def scatter(month):
         ax.scatter([], [], s = plot_scl*area_scl, c = "gray", alpha = 0.5, label = str(area_scl) + 'M')
     ax.legend(loc = (1.05, 0.3), title="Population (Millions)", labelspacing = 1.5, borderpad = 1)
 
+    plt.text(30, 200, month, fontsize = 30).set_alpha(.4)
+
     plt.tight_layout()    
     plt.savefig('img/'+month+'.png')
 
