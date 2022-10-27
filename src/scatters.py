@@ -6,6 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import numpy as np
+import datetime
 
 def scatter(month):
     df = pd.read_csv('data/Merge/vaccinations-and-deaths-'+month+'.csv', converters={'FIPS' : str})
@@ -16,13 +17,17 @@ def scatter(month):
     x = df[xlabel]
     y = df[ylabel]
     area = df['Census2019_18PlusPop'] / 1e6     #population in millions
+    
+    #To display date in interantional date format on the animation
 
+    IDF_date = date1 = datetime.strptime(month, '%m-%d-%Y').strftime('%Y-%m-%d')
+    
     fig, ax = plt.subplots()
     ax.set_xlabel("Percent of Population (+18) Considered Fully Vaccinated")
     ax.set_ylabel("Deaths per 100K")
     ax.set_xlim(0,100)
     ax.set_ylim(0,400) #[KR] changed from 500 limit to 400 limit
-    ax.set_title("Vaccine Effectiveness Snapshot as of: "+ month)
+    ax.set_title("Vaccine Effectiveness Snapshot as of: "+ IDF_date)
     fig.set_size_inches(8,6)
     ax.spines['top'].set_visible(False) #[MR] Removes top spine
     ax.spines['right'].set_visible(False) #[MR] Removes right spine
