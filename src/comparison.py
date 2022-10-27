@@ -53,11 +53,15 @@ def comparison(FIPS_1='44003', FIPS_2='01125'):
     FIPS_2_death = FIPS_2_death['Deaths_Per_1e5']
 
     fig,ax1 = plt.subplots() 
+    
+    plt.tick_params(axis='x', rotation=30 ,direction='out', length=len(x))
+    plt.figure(figsize=(len(x), 100))
     x = np.arange(len(labels))
-    width = 0.35 
+    width = 0.35
     ax1.set_xticks(x, labels)
     ax1.set_ylim(0, 100)
-    ax1.set_xlim(0,6)
+    ax1.set_xlim(-1,len(x))
+    
     ax1.set_title('18+ Vaccination Rates and Deaths in '+FIPS_1_name+" and "+FIPS_2_name, wrap=True)
     ax1.set_xlabel('Month 2021')
     ax1.set_ylabel('Percent Vaccinated') 
