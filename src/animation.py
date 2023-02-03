@@ -6,6 +6,8 @@
 
 import imageio as iio
 import os
+import glob
+import time
 
 def create_gif(filename_save):
     """This function creates a gif animation from a folder of png images
@@ -14,11 +16,21 @@ def create_gif(filename_save):
     """
     #makes a list of im NumPy arrays based on a list of .png images (read from folder)
     images = list()
+    
+    #changes made by meghDev
+    dir_name = 'img/'
+    list_of_files = filter( os.path.isfile,
+                        glob.glob(dir_name + '*') )
+    
+    list_of_files = sorted( list_of_files,
+                        key = os.path.getmtime) 
+    
 
     #this part looks at the img directory and reads in all the files that end with .png (only going to bring in those)
-    for filename in sorted(os.listdir('img')):
+    for filename in list_of_files: #changes made by meghDev
+        #sorted(os.listdir('img')):
         if filename[-4:] == '.png' and not filename == 'comparison.png':
-            f = os.path.join('img',filename)
+            f = os.path.join(filename)
             im = iio.imread(f)
             images.append(im)
 
